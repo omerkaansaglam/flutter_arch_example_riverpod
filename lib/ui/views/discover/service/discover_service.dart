@@ -16,7 +16,7 @@ class _DiscoverServiceImpl extends DiscoverService{
   Future<ResponseModel> getTrendingVideos({int page = 1, SubPathEnum subPath = SubPathEnum.movie}) async {
     try {
       final response = await ref.read(networkManagerProvider).get(
-        '/${PathEnum.trending}/${subPath.name}',);
+        '/${PathEnum.trending.name}/${subPath.name}',);
       if (response.statusCode == 200) {
         final data = response.data as Map<String, dynamic>;
         final responseModel = ResponseModel.fromJson(data);

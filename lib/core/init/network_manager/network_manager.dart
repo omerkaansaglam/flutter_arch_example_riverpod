@@ -27,7 +27,7 @@ class NetworkManager {
     Map<String, dynamic>? queryParameters,
   }) async {
     return _dio.get(
-      apiUrl,
+      '$apiUrl/day?language=en-US',
       queryParameters: queryParameters,
       options: Options(
         responseType: responseType,
