@@ -1,19 +1,24 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter_arch_example_riverpod/core/constants/constants.dart';
+import 'package:flutter_arch_example_riverpod/core/enums/environment_enum.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NetworkManager {
 
-  NetworkManager(this.ref, this.baseUrl){
+  NetworkManager(this.ref){
     _dio = Dio(BaseOptions(
-      baseUrl: baseUrl ?? kFcmBaseUrl,
+      baseUrl: dotenv.env[EnvironmentEnum.baseUrl.defination] ?? '',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': '${dotenv.env[EnvironmentEnum.accessToken.defination]}',
+        'accept' : 'application/json',
+      },
     ),);
   }
 
   final Ref ref;
-  String? baseUrl;
   late Dio _dio;
 
   Future<Response<dynamic>> get(
@@ -133,4 +138,4 @@ class NetworkManager {
   }*/
 }
 
-final networkManagerProvider = Provider.family<NetworkManager,String?>(NetworkManager.new);
+final networkManagerProvider = Provider<NetworkManager>(NetworkManager.new);

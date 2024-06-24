@@ -5,4 +5,3 @@ final GlobalKey<NavigatorState> kNavigatorKey = GlobalKey<NavigatorState>();
 const String kAppBarTitle = 'Flutter Arch Example Riverpod';
 const double kDesignWidth = 375;
 const double kDesignHeight = 812;
-const String kFcmBaseUrl = 'https://fcm.googleapis.com';

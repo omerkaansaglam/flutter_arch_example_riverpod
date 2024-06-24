@@ -9,6 +9,8 @@ class AppRouter extends $AppRouter {
   RouteType get defaultRouteType => const RouteType.adaptive();
   @override //navigateRoute
   final List<AutoRoute> routes = [
-   
+    AutoRoute(page: MainRoute.page, initial: true, children: [
+      AutoRoute(page: DiscoverRoute.page),
+    ]),
   ];
 }
