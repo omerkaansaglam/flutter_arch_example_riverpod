@@ -1,8 +1,8 @@
 
 part of '../app.dart';
 
-class ArchExampleApp extends HookConsumerWidget {
-  const ArchExampleApp({super.key});
+class _ArchExampleApp extends HookConsumerWidget {
+  const _ArchExampleApp();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
